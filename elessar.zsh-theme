@@ -13,7 +13,7 @@ function get_pwd(){
     prompt_short_dir=%~
   else
     parent=${git_root%\/*}
-    prompt_short_dir=${PWD#$parent/}
+    prompt_short_dir=${%F{38}PWD#$parent/%f}
   fi
   echo $prompt_short_dir
 }
@@ -31,15 +31,15 @@ function get_git_status() {
 PROMPT='$ret_status %{$fg[white]%}$(get_pwd) $(git_prompt_info)$(get_git_status)'
 
 # Git info
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[cyan]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[220]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✓%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[129]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[41]%}✓%{$reset_color%}"
 
 # Git status
-ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}+%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[41]%}+%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}-%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[magenta]%}*%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%}>%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}=%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}?%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[129]%}*%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[38]%}>%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[172]%}=%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[7]%}?%{$reset_color%}"
